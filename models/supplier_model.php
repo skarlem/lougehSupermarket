@@ -14,7 +14,7 @@ class Supplier{
         
        
     function get_suppliers(){
-        $sql = "SELECT * FROM supplier";
+        $sql = "SELECT * FROM supplier order by id desc";
         $result = $this->connnection->query($sql);
 
 

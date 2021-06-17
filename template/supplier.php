@@ -1,12 +1,11 @@
 <?php
 $page_name = "Supplier";
 
-include('controller/manage_supplier.php');  
 include('includes/header.php');
 include('includes/navbar.php');
 include('includes/sidebar.php');
 
-
+include('controller/manage_supplier.php');  
 
 
 ?>
