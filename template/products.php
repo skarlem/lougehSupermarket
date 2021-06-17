@@ -103,7 +103,7 @@ include('controller/manage_products.php');
                         
                         <div class="mb-3">
                           <label for="exampleFormControlInput1" class="form-label">Barcode Number</label>
-                              <input type="text" class="form-control" name="barcode"  maxlength="11" id="exampleFormControlInput1" placeholder="Enter Barcode Number"  value="'.$barcode.'" required    >
+                              <input type="text" class="form-control"  name="barcode"  maxlength="11" id="exampleFormControlInput1" placeholder="Enter Barcode Number"  value="'.$barcode.'" required    >
 
                          </div>
 
@@ -180,8 +180,12 @@ include('controller/manage_products.php');
 
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">Barcode Number</label>
-                                                <input  type="tel" class="form-control"  oninput="getBarcode()"maxlength="11" id="barcodes" name="barcodes" id="exampleFormControlInput1" placeholder="Enter Barcode Number" required>
+                                                <input  type="number" class="form-control"  
+                                                oninput=" javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); getBarcode();" id="barcodes" name="barcodes" id="exampleFormControlInput1" 
+                                                maxlength = "11 "
+                                                  placeholder="Enter Barcode Number" required>
                                         </div>
+                                        
                                         <div class="alert alert-warning" id="txtHint"role="alert" hidden>
                                            Barcode already exists!
                                         </div>
@@ -216,7 +220,7 @@ include('controller/manage_products.php');
 
                                                         foreach($supplier->get_suppliers() as $supply){
                                                            $name = $supply['supplier_name'];
-                                                            $id  = $supply['id_code'];
+                                                            $id  = $supply['id'];
                                                             ?>
                                                             <option value="<?php echo $id ?>"><?php echo $name ?></option>
 

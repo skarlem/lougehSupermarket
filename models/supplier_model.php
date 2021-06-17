@@ -62,9 +62,21 @@ class Supplier{
         }
     }
 
-    function remove_supplier($id){
-        
+
+
+
+    function remove_supplier($input){
+        $stmt = $this->connnection->prepare("DELETE FROM `supplier` WHERE id = ?");
+
+        $stmt->bind_param('i',  $input);
+        if($stmt->execute()){
+            return true;
+        }else{
+            return false;
+        }
     }
+
+
 
 
 

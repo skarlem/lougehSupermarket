@@ -89,4 +89,38 @@
      }
   
   }
+
+  if(isset($_POST['delete_submit'])){
+
+
+  
+    $id =  $conn->real_escape_string($_POST['id']);
+    
+  
+
+  
+     if($supplier->remove_supplier($id)){
+        echo '
+        <script>
+        Swal.fire({
+          title: "Good Job!",
+          text: "Supplier Information Deleted",
+          type: "success",
+        
+          confirmButtonColor: "#3085d6",
+          confirmButtonText: "Ok"
+        }).then((result) => {
+          if (result.value) {
+            window.location.href="supplier.php";
+          }
+        })
+    </script>
+    '; 
+     }else{
+       echo 'asdasd';
+     }
+  
+  }
+
+  
 ?>

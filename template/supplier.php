@@ -68,6 +68,12 @@ include('controller/manage_supplier.php');
                       <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
                         <span class="btn-inner--text">Edit</span>
                     </button>
+                    <button class="btn btn-sm btn-icon btn-3 btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete_modal'.$id.'">
+                    <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
+                      <span class="btn-inner--text">Delete</span>
+                  </button>
+                   
+                    
 
 
                     </td>
@@ -80,11 +86,11 @@ include('controller/manage_supplier.php');
 
 
 
-                    <div class="modal fade" id="edit_modal'.$id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="delete_modal'.$id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Supplier Information</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Remove Supplier</h5>
 
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             <span aria-hidden="true">&times;</span>
@@ -97,47 +103,102 @@ include('controller/manage_supplier.php');
                       
                         <div class="container-fluid">
                         
+
                         <input type="hidden"   class="form-control" name="id"  maxlength="11" id="exampleFormControlInput1" placeholder=""  value="'.$id.'">
                         
-                        
-                        <div class="mb-3">
-                          <label for="exampleFormControlInput1" class="form-label">ID CODE</label>
-                              <input type="text"  disabled class="form-control" name="id"  maxlength="11" id="exampleFormControlInput1" placeholder=""  value="'.$id.'">
-
-                         </div>
-
-                     
+                       
+                     <div class="alert alert-warning" role="alert">
+                    Are you sure you want to delete?
+                    </div>
     
-                         <div class="mb-3">
-                         <label for="exampleFormControlInput1" class="form-label">Supplier</label>
-                             <input type="text" class="form-control" id="exampleFormControlInput1"name="supplier_name"  id="product_desc"  placeholder="Enter Name of Supplier"  value="'.$supplier_name.'" required>
+                        
 
-                        </div>
-
-
-                         <div class="mb-3">
-                         <label for="exampleFormControlInput1" class="form-label">Contact Number</label>
-                             <input type="number" class="form-control" id="exampleFormControlInput1" name="contact_no" id="contact" placeholder="Contact Number" value="'.$contact_no.'" required>
-                             
-                        </div>
          
-                   
-                        <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" name="address" id="address" placeholder="Address" value="'.$address.'" required>
-                            
-                       </div>
-        
 
                               
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="edit_submit"class="btn btn-primary">Submit</button>
+                <button type="submit" name="delete_submit"class="btn btn-primary">Submit</button>
                    </div>
                   </div>
                 </form>
               </div>
             </div>  
+
+
+
+
+
+
+            
+
+
+            <div class="modal fade" id="edit_modal'.$id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Supplier Information</h5>
+
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form method="POST">
+  
+  
+  
+              
+                <div class="container-fluid">
+                
+                <input type="hidden"   class="form-control" name="id"  maxlength="11" id="exampleFormControlInput1" placeholder=""  value="'.$id.'">
+                
+                
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">ID CODE</label>
+                      <input type="text"  disabled class="form-control" name="id"  maxlength="11" id="exampleFormControlInput1" placeholder=""  value="'.$id.'">
+
+                 </div>
+
+             
+
+                 <div class="mb-3">
+                 <label for="exampleFormControlInput1" class="form-label">Supplier</label>
+                     <input type="text" class="form-control" id="exampleFormControlInput1"name="supplier_name"  id="product_desc"  placeholder="Enter Name of Supplier"  value="'.$supplier_name.'" required>
+
+                </div>
+
+
+                 <div class="mb-3">
+                 <label for="exampleFormControlInput1" class="form-label">Contact Number</label>
+                     <input type="number" class="form-control" id="exampleFormControlInput1" name="contact_no" id="contact" placeholder="Contact Number" value="'.$contact_no.'" required>
+                     
+                </div>
+ 
+           
+                <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" name="address" id="address" placeholder="Address" value="'.$address.'" required>
+                    
+               </div>
+
+
+
+             
+
+
+                      
+    <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" name="edit_submit"class="btn btn-primary">Submit</button>
+           </div>
+          </div>
+        </form>
+      </div>
+    </div>  
+
+
+
+
 
 
 

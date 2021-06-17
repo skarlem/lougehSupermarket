@@ -67,6 +67,20 @@ class Products{
             return false;
         }
     }
+    
+    function update_quantity($array){
+
+        $stmt = $this->connnection->prepare("UPDATE supply SET quantity= quantity - ? where id = ?");
+
+        $stmt->bind_param('ii',  $array[0],$array[1]);
+
+
+        if($stmt->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 
 
