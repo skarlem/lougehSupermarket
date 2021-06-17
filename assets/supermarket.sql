@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2021 at 06:33 PM
+-- Generation Time: Jun 17, 2021 at 05:19 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
@@ -46,7 +46,9 @@ INSERT INTO `sales_record` (`id`, `product_name`, `quantity`, `price_per_unit`, 
 (1, 'whatkindofproductisthis?213123213', 3, 7, '333123123', '3333', '0', 21),
 (2, '432reffsdfdsd', 4, 5000, 'Carl', 'Purok Del Pilar', '2147483647', 20000),
 (3, '432reffsdfdsd', 4, 5000, 'Carl', 'Purok Del Pilar', '09158010869', 20000),
-(4, 'ggfgdfgdfgdfggggggggggggggggg', 6, 333, 'Mhounic', 'Purok Del Pilar', '09158010869', 1998);
+(4, 'ggfgdfgdfgdfggggggggggggggggg', 6, 333, 'Mhounic', 'Purok Del Pilar', '09158010869', 1998),
+(5, 'lolllllllll', 5, 3333, 'Michael', 'Earth', '09158010869', 16665),
+(6, 'lolllllllll', 3, 3333, '123123', '123123', '12312312', 9999);
 
 -- --------------------------------------------------------
 
@@ -109,7 +111,9 @@ INSERT INTO `supply` (`id`, `barcode`, `product_desc`, `quantity`, `cost_per_uni
 (37, '33333333333', 'qwe123123', 12312312, 2147483647, 'CS100000', 222),
 (38, '23333333333', 'what kind of product is this?', 123123, 123123, 'CS100000', 12321),
 (43, '12313444411', 'lolllllllll', 444444, 123123, '', 3333),
-(44, '22654654654', 'eeheheheh', 11, 57, '', 50);
+(44, '22654654654', 'eeheheheh', 11, 57, '', 50),
+(45, '54312333333', 'eeeeeeeeeeeeeeeeeeee', 999999, 23456, '', 65432),
+(46, '98762123123', 'whatasdasdasdasdaaaaaaaaa', 2147483647, 2147483647, '', 2147483647);
 
 --
 -- Indexes for dumped tables
@@ -142,7 +146,7 @@ ALTER TABLE `supply`
 -- AUTO_INCREMENT for table `sales_record`
 --
 ALTER TABLE `sales_record`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `supplier`
@@ -154,7 +158,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `supply`
 --
 ALTER TABLE `supply`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
