@@ -29,11 +29,24 @@
   
     if($product->addProduct($array)){
       $_POST = array();
-   
-       echo 'asdasdasdasdasdasd';
-      echo "<script>location.href='products.php';</script>";  
+      echo '
+      <script>
+      Swal.fire({
+        title: "Good Job!",
+        text: "New product added to inventory",
+        type: "success",
+      
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Ok"
+      }).then((result) => {
+        if (result.value) {
+          window.location.href="products.php";
+        }
+      })
+  </script>
+  '; 
      }else{
-       echo 'asdasd';
+      // echo 'asdasd';
      }
   
   }
@@ -58,10 +71,25 @@
       $id
   );
   
-  print_r($array);
+  // print_r($array);
   
      if($product->update_product($array)){
-      echo "<script>location.href='products.php';</script>";  
+      echo '
+      <script>
+      Swal.fire({
+        title: "Good Job!",
+        text: "Product information updated",
+        type: "success",
+      
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Ok"
+      }).then((result) => {
+        if (result.value) {
+          window.location.href="products.php";
+        }
+      })
+  </script>
+  '; 
      }else{
        echo 'asdasd';
      }

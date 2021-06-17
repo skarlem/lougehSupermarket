@@ -22,10 +22,25 @@
       
   );
   
-  print_r($array);
+  // print_r($array);
   
      if($supplier->add_supplier($array)){
-      echo "<script>location.href='supplier.php';</script>";  
+      echo '
+        <script>
+        Swal.fire({
+          title: "",
+          text: "New Supplier Added",
+          type: "success",
+        
+          confirmButtonColor: "#3085d6",
+          confirmButtonText: "Ok"
+        }).then((result) => {
+          if (result.value) {
+            window.location.href="supplier.php";
+          }
+        })
+    </script>
+    ';  
      }else{
        echo 'asdasd';
      }
@@ -53,7 +68,22 @@
 
   
      if($supplier->modify_supplier($array)){
-      // echo "<script>location.href='supplier.php';</script>";  
+        echo '
+        <script>
+        Swal.fire({
+          title: "Good Job!",
+          text: "Supplier Information Modified",
+          type: "success",
+        
+          confirmButtonColor: "#3085d6",
+          confirmButtonText: "Ok"
+        }).then((result) => {
+          if (result.value) {
+            window.location.href="supplier.php";
+          }
+        })
+    </script>
+    '; 
      }else{
        echo 'asdasd';
      }

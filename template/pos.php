@@ -1,13 +1,13 @@
 <?php
 $page_name = "Point of Sale";
 
-include('controller/sales_transactions.php');  
+
 include('includes/header.php');
 include('includes/navbar.php');
 include('includes/sidebar.php');
 
 
-
+include('controller/sales_transactions.php');  
 
 
 
@@ -139,5 +139,8 @@ $('select[name="product"]').on('change',function(){
 
 </script>
     
+    
     </div>
 </div>
+</div>
+

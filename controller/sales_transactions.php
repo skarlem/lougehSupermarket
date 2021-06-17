@@ -31,16 +31,33 @@
         $total_price,  
     );
 
+   
 
-
-    print_r($array);
+    // print_r($array);
 
 
     if($sales->record_sales($array)){
         $_POST = array();
      
+        echo '
+        <script>
+        Swal.fire({
+          title: "Good Job!",
+          text: "Payment Successful",
+          type: "success",
+        
+          confirmButtonColor: "#3085d6",
+          confirmButtonText: "Ok"
+        }).then((result) => {
+          if (result.value) {
+            window.location.href="pos.php";
+          }
+        })
+    </script>
+    '; 
+
          echo 'asdasdasdasdasdasd';
-         echo "<script>location.href='pos.php';</script>";  
+        //  echo "<script>location.href='pos.php';</script>";  
        }else{
          echo 'asdasd';
        }
