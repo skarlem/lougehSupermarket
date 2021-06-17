@@ -7,7 +7,6 @@ include('includes/sidebar.php');
 
 include('controller/manage_supplier.php');  
 
-
 ?>
 
 
@@ -40,7 +39,7 @@ include('controller/manage_supplier.php');
                 <th>Supplier Name</th>
                 <th>Contact No.</th>
                 <th>Address</th>
-              
+                <th>Status</th>
                <th>Action</th>
             </tr>
         </thead>
@@ -53,8 +52,12 @@ include('controller/manage_supplier.php');
                   $supplier_name = $row['supplier_name'];
                   $contact_no = $row['contact_no'];
                   $address = $row['address'];
-                 
-
+                  $statusBool = $row['status'];
+                  if($statusBool){
+                    $status = "Active";
+                  }else{
+                    $status = "Inactive";
+                  }
                   echo'
                     <tr>
                       <td>'.$id.'</td>
@@ -62,16 +65,26 @@ include('controller/manage_supplier.php');
                       <td>'.$contact_no.'</td>
                       <td>'.$address.'</td>
                      
+                      <td>'.$status.'</td>
                       <td>
-
+                      <form class="form"method="POST">
                       <button class="btn btn-sm btn-icon btn-3 btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#edit_modal'.$id.'">
                       <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
                         <span class="btn-inner--text">Edit</span>
                     </button>
-                    <button class="btn btn-sm btn-icon btn-3 btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete_modal'.$id.'">
-                    <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
-                      <span class="btn-inner--text">Delete</span>
-                  </button>
+
+                 
+                    <input type="hidden"   class="form-control" name="status"  maxlength="11" id="exampleFormControlInput1" placeholder=""  value="'.$statusBool.'">
+                    <input type="hidden"   class="form-control" name="id"  maxlength="11" id="exampleFormControlInput1" placeholder=""  value="'.$id.'">
+                          <button class="btn btn-sm btn-icon btn-3 btn-info" type="submit" name="delete_submit">
+                          <span class="btn-inner--icon"><i class="fas fa-edit"></i></span>
+                            <span class="btn-inner--text">Change Status</span>
+                        </button>
+
+
+                      </form>
+
+                  
                    
                     
 
@@ -86,44 +99,7 @@ include('controller/manage_supplier.php');
 
 
 
-                    <div class="modal fade" id="delete_modal'.$id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Remove Supplier</h5>
-
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <form method="POST">
-          
-          
-          
-                      
-                        <div class="container-fluid">
-                        
-
-                        <input type="hidden"   class="form-control" name="id"  maxlength="11" id="exampleFormControlInput1" placeholder=""  value="'.$id.'">
-                        
-                       
-                     <div class="alert alert-warning" role="alert">
-                    Are you sure you want to delete?
-                    </div>
-    
-                        
-
-         
-
-                              
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" name="delete_submit"class="btn btn-primary">Submit</button>
-                   </div>
-                  </div>
-                </form>
-              </div>
-            </div>  
+      
 
 
 
@@ -133,11 +109,11 @@ include('controller/manage_supplier.php');
             
 
 
-            <div class="modal fade" id="edit_modal'.$id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="edit_modal'.$id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel'.$id.'" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Supplier Information</h5>
+                <h5 class="modal-title" id="exampleModalLabel'.$id.'">Edit Supplier Information</h5>
 
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <span aria-hidden="true">&times;</span>
@@ -199,6 +175,46 @@ include('controller/manage_supplier.php');
 
 
 
+    
+
+    <div class="modal fade" id="delete_modal'.$id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel'.$id.'" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel'.$id.'">Supplier Status</h5>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form method="POST">
+
+
+
+      
+        <div class="container-fluid">
+      
+        <input type="hidden"   class="form-control" name="status"  maxlength="11" id="exampleFormControlInput1" placeholder=""  value="'.$statusBool.'">
+        <input type="hidden"   class="form-control" name="id"  maxlength="11" id="exampleFormControlInput1" placeholder=""  value="'.$id.'">
+        
+       
+     <div class="alert alert-warning" role="alert">
+    Are you sure you want to change supplier status?
+    </div>
+
+        
+
+
+
+              
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="submit" name="delete_submit"class="btn btn-primary">Submit</button>
+   </div>
+  </div>
+</form>
+</div>
+</div>
 
 
 

@@ -97,21 +97,37 @@
     $id =  $conn->real_escape_string($_POST['id']);
     
   
+    $statusPost =  $conn->real_escape_string($_POST['status']);
 
+
+    if($statusPost){
+      $status = false;
+    }else{
+      $status = true;
+    }
+   
+
+      $array = array(
+      $status,
+      $id
+      
+  );
+  echo $statusPost;
+  print_r($array);
   
-     if($supplier->remove_supplier($id)){
+     if($supplier->remove_supplier($array)){
         echo '
         <script>
         Swal.fire({
           title: "Good Job!",
-          text: "Supplier Information Deleted",
+          text: "Supplier Status Changed",
           type: "success",
         
           confirmButtonColor: "#3085d6",
           confirmButtonText: "Ok"
         }).then((result) => {
           if (result.value) {
-            window.location.href="supplier.php";
+             window.location.href="supplier.php";
           }
         })
     </script>
@@ -119,7 +135,7 @@
      }else{
        echo 'asdasd';
      }
-  
+    
   }
 
   

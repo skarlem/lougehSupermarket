@@ -66,9 +66,9 @@ class Supplier{
 
 
     function remove_supplier($input){
-        $stmt = $this->connnection->prepare("DELETE FROM `supplier` WHERE id = ?");
+        $stmt = $this->connnection->prepare("UPDATE supplier SET `status`=? WHERE id = ?");
 
-        $stmt->bind_param('i',  $input);
+        $stmt->bind_param('ii',  $input[0],$input[1]);
         if($stmt->execute()){
             return true;
         }else{

@@ -31,7 +31,6 @@ include('controller/sales_transactions.php');
                 <div class="col">
                 
 
-
                 <input type="hidden" name="product_name" id="product_name" class="form-control" min="0" id="exampleFormControlInput1" placeholder="">
                 
 
@@ -45,15 +44,20 @@ include('controller/sales_transactions.php');
 
                         foreach($product->getProducts() as $supply){
                             $name = $supply['product_desc'];
+                            $quantity = $supply['quantity'];
                             $barcode  = $supply['barcode'];
                             $unit_price  = $supply['unit_price'];
                             $id  = $supply['id'];
+                    if($quantity>0){
+
+
                     ?>
                     <option value="<?php echo $id ?>"><?php echo $name ?></option>
 
                         <td>
                                               
                     <?php
+                        }
                      }
 
                     ?>
